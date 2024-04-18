@@ -3,6 +3,9 @@ package com.riwi.primeraweb.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.riwi.primeraweb.entity.Coder;
@@ -26,6 +29,20 @@ public class CoderService {
         return this.objCoderRepository.findAll();
     }
 
+
+    /*
+     * Método para listar los coders de forma paginada
+     */
+    public Page<Coder> fingPaginated(int page, int size) {
+        if (page < 0) {
+            page = 1;
+        }
+
+        // Crear objeto de paginación
+        Pageable objPageable = PageRequest.of(page, size);
+
+        return this.objCoderRepository.findAll(objPageable);
+    }
     /*
      * Servicio para guardar un Coder
      * */
@@ -62,5 +79,12 @@ public class CoderService {
         return this.objCoderRepository.findById(id).orElse(null);
 
     }
+
+    public Coder findByName(String name) {
+        return objCoderRepository.findByName(name).orElse(null);
+    }
+
+
+
 
 }
