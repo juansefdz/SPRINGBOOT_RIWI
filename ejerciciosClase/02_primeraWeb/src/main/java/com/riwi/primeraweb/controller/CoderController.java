@@ -97,7 +97,7 @@ public class CoderController {
      * METODO PARA BUSCAR POR NOMBRE
      */
 
-    @GetMapping("/coder")
+    @GetMapping("/coder/search")
     public Coder searchByName(@RequestParam String name) {
         return objCoderService.findByName(name);
     }

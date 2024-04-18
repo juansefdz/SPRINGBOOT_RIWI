@@ -15,8 +15,8 @@
     <h1 class="text-center my-5 fw-bold">Coder's List</h1>
 
     <div class="container d-flex flex-direction">
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search Coder" aria-label="Search">
+      <form class="d-flex" role="search" th:action="@{/coder/search}" method="get">
+        <input class="form-control me-2" type="search" name="name" placeholder="Search Coder" aria-label="Search">
         <button class="btn btn-outline-warning justify-content-lg-left" type="submit">Find Coder</button>
       </form>
 
