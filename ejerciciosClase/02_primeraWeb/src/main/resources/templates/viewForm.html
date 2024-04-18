@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,12 +14,16 @@
   <body>
     <h1 class="text-center m-5">Coder's Form</h1>
     <div class="container">
+      <form th:object="${coder}" th:action ="${action}" method="post">
+        <input type="hidden" th:field="*{id}" th:value="${coder.id}">
       <div class="form-floating mb-3">
         <input
           type="text"
           class="form-control"
-          id="floatingInput"
+          id="name"
           placeholder="coder name"
+          th:field="*{name}"
+          th:value="${coder.name}"
         />
         <label for="floatingInput">Coder Name</label>
       </div>
@@ -27,8 +31,10 @@
         <input
           type="number"
           class="form-control"
-          id="floatingInput"
+          id="age"
           placeholder="coder Age"
+          th:field="*{age}"
+          th:value="${coder.age}"
         />
         <label for="floatingInput">Coder Age</label>
       </div>
@@ -36,26 +42,22 @@
         <input
           type="text"
           class="form-control"
-          id="floatingInput"
+          id="clan"
           placeholder="clan name"
+          th:field="*{clan}"
+          th:value="${coder.clan}"
         />
         <label for="floatingInput">Coder Clan</label>
       </div>
-      <div class="form-floating mb-3">
-        <input
-          type="email"
-          class="form-control"
-          id="floatingInput"
-          placeholder="name@example.com"
-        />
-        <label for="floatingInput">Email address</label>
-      </div>
+
       <div
         class="container d-flex justify-content-lg-center align-items-center gap-2"
       >
-        <button type="submit" class="btn btn-success">Create New Coder</button>
+        <button type="submit" class="btn btn-success">Save</button>
         <a href="/" class="btn btn-danger">Cancel</a>
       </div>
+      </form>
+
     </div>
 
     <script
