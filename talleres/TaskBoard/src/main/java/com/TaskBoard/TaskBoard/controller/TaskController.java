@@ -15,7 +15,7 @@ public class TaskController {
     private TasksService objTasksService;
 
 
-    @GetMapping("/form") //vista pagina inicial
+    @GetMapping("/") //vista pagina inicial
     public String showViewFormCoder(Model objModel){
 
 
