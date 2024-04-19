@@ -40,6 +40,17 @@
                             <label for="TitleDescription" class="form-label">Task Description</label>
                             <input type="text" class="form-control" id="TitleDescription" aria-describedby="Task Title">
                           </div>
+
+                          <div class="mb-3">
+                            <label for="TitleDescription" class="form-label">DATE</label>
+                            <input type="text" class="form-control" id="TitleDescription" aria-describedby="Task Title">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="TitleDescription" class="form-label">TIME</label>
+                            <input type="text" class="form-control" id="TitleDescription" aria-describedby="Task Title">
+                          </div>
+                          
                           
                         
                         
@@ -48,44 +59,46 @@
                 </div>
 
             </div>
-            <div class="panel-container w-50 h-100 d-flex gap-5 m-5 align-items-center  flex-column">
+            <div class="panel-container w-50 h-100 d-flex gap-5 m-5 align-items-center flex-column">
                 <div>
                     <h1> MY TASKS</h1>
                 </div>
-                <div class="tasks-container d-flex gap-2 justify-content-center align-items-center flex-wrap">
-                    <div class="card" style="height: 20rem; width: 20rem;">
-                        <div class="card-body">
-                          <h1 class="card-title">TITLE</h5>
-                          <h2 class="card-subtitle mb-2 text-body-secondary">State</h6>
-                          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, tempore.</p>
-                          <br>
-                          <h5>Creation Time:</h5>
-                          <h5>Creation Date:</h5>
-                        </div>
-                      </div>
-                      <div class="card" style="height: 20rem; width: 20rem;">
-                        <div class="card-body">
-                          <h1 class="card-title">TITLE</h5>
-                          <h2 class="card-subtitle mb-2 text-body-secondary">State</h6>
-                          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, tempore.</p>
-                          <br>
-                          <h5>Creation Time:</h5>
-                          <h5>Creation Date:</h5>
-                        </div>
-                      </div>
-                      <div class="card" style="height: 20rem; width: 20rem;">
-                        <div class="card-body">
-                          <h1 class="card-title">TITLE</h5>
-                          <h2 class="card-subtitle mb-2 text-body-secondary">State</h6>
-                          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, tempore.</p>
-                          <br>
-                          <h5>Creation Time:</h5>
-                          <h5>Creation Date:</h5>
-                        </div>
-                      </div>
-                      
+                <div class="tasks-container  d-flex gap-2 align-items-center flex-column">
+                    
+                      <div class="card" style="height: 20rem; ">
+                            <div class="card-body">
+                                <h1 class="card-title">TITLE</h5>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          State
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#">Active</a></li>
+                                          <li><a class="dropdown-item" href="#">Completed</a></li>
+                                          <li><a class="dropdown-item" href="#">Cancelled</a></li>
+                                        </ul>
+                                      </div>
+                                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, tempore.</p>
+                                <br>
+                                <h5>Creation Time:</h5>
+                                <h5>Creation Date:</h5>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                    </div> 
+                    
+               
+                          
 
                 </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
                 
                   
                   
