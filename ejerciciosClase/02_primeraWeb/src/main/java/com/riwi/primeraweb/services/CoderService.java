@@ -33,14 +33,16 @@ public class CoderService {
     /*
      * Método para listar los coders de forma paginada
      */
-    public Page<Coder> fingPaginated(int page, int size) {
+    public Page<Coder> fingPaginated(int page, int size, String name) {
         if (page < 0) {
             page = 1;
         }
 
         // Crear objeto de paginación
         Pageable objPageable = PageRequest.of(page, size);
-
+        if(name !=null){
+            return this.objCoderRepository.findByName(objPageable,name);
+        }
         return this.objCoderRepository.findAll(objPageable);
     }
     /*
@@ -80,9 +82,7 @@ public class CoderService {
 
     }
 
-    public Coder findByName(String name) {
-        return objCoderRepository.findByName(name).orElse(null);
-    }
+
 
 
 

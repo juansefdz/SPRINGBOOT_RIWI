@@ -23,9 +23,9 @@ public class CoderController {
      * Método para mostrar la vista y enviarle la lista coders
      */
     @GetMapping
-    public String showViewGetAll(Model objModel, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size){
+    public String showViewGetAll(Model objModel, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size, @RequestParam (required = false)String name){
         // LLamo el servicio y guardo la lista de coders
-        Page<Coder> list = this.objCoderService.fingPaginated(page - 1, size);
+        Page<Coder> list = this.objCoderService.fingPaginated(page - 1, size, name);
         objModel.addAttribute("coderList", list); // Llave- valor
         objModel.addAttribute("currentPage", page); // Llave- valor
         objModel.addAttribute("totalPages", list.getTotalPages()); // Llave- valor
@@ -97,8 +97,11 @@ public class CoderController {
      * METODO PARA BUSCAR POR NOMBRE
      */
 
-    @GetMapping("/coder/search")
-    public Coder searchByName(@RequestParam String name) {
-        return objCoderService.findByName(name);
+    @GetMapping("/coder/search/")
+    public String searchByName(@RequestParam String name) {
+
+        return "redirect:/";
+
+
     }
 }
