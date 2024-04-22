@@ -13,7 +13,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 100, nullable = false)
-    private String task_title;
+    private String title;
     @Column(length = 255, nullable = false)
     private String task_description;
     @Column(nullable = false)
@@ -30,7 +30,7 @@ public class Task {
 
     public Task(Long id, String task_title, String task_description, LocalDate creation_date, LocalTime creation_time, String task_state) {
         this.id = id;
-        this.task_title = task_title;
+        this.title = task_title;
         this.task_description = task_description;
         this.creation_date = creation_date;
         this.creation_time = creation_time;
@@ -48,11 +48,11 @@ public class Task {
     }
 
     public String getTask_title() {
-        return task_title;
+        return title;
     }
 
-    public void setTask_title(String task_title) {
-        this.task_title = task_title;
+    public void setTask_title(String title) {
+        this.title = title;
     }
 
     public String getTask_description() {
@@ -93,7 +93,7 @@ public class Task {
     public String toString() {
         return "Task{" +
                 "id=" + id +
-                ", task_title='" + task_title + '\'' +
+                ", task_title='" + title + '\'' +
                 ", task_description='" + task_description + '\'' +
                 ", creation_date=" + creation_date +
                 ", creation_time=" + creation_time +
