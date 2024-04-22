@@ -9,10 +9,102 @@
                 integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
                 crossorigin="anonymous"
         />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="./src/main/resources/css/styles.css">
+        
 
         <title>TASK BOARD</title>
+
     </head>
     <body>
+        <header class="header-container d-flex align-items-center m-4 flex-row justify-content-around">
+            <div class=" d-flex flex-row justify-content-center align-items-center card-title">
+                <i class='bx bx-task'></i>
+                <h1>TASK BOARD</h1>
+            </div>
+            
+            <button type="button" class="btn btn-primary">Add new Task</button>
+
+        </header>
+
+        <div class="main-container d-flex flex-row justify-content-center ">
+            
+            <div class="task-container w-50 h-100 d-flex">
+                <div class="new-task-container w-100 h-100 d-flex flex-column m-5">
+                    <form>
+                        <div class="mb-3">
+                          <label for="TitleTask" class="form-label">Task Title</label>
+                          <input type="text" class="form-control" id="TitleTask" aria-describedby="Task Title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="TitleDescription" class="form-label">Task Description</label>
+                            <input type="text" class="form-control" id="TitleDescription" aria-describedby="Task Title">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="TitleDescription" class="form-label">DATE</label>
+                            <input type="text" class="form-control" id="TitleDescription" aria-describedby="Task Title">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="TitleDescription" class="form-label">TIME</label>
+                            <input type="text" class="form-control" id="TitleDescription" aria-describedby="Task Title">
+                          </div>
+                          
+                          
+                        
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                </div>
+
+            </div>
+            <div class="panel-container w-50 h-100 d-flex gap-5 m-5 align-items-center flex-column">
+                <div>
+                    <h1> MY TASKS</h1>
+                </div>
+                <div class="tasks-container  d-flex gap-2 align-items-center flex-column">
+                    
+                      <div class="card" style="height: 20rem; ">
+                            <div class="card-body">
+                                <h1 class="card-title">TITLE</h5>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                          State
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="#">Active</a></li>
+                                          <li><a class="dropdown-item" href="#">Completed</a></li>
+                                          <li><a class="dropdown-item" href="#">Cancelled</a></li>
+                                        </ul>
+                                      </div>
+                                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, tempore.</p>
+                                <br>
+                                <h5>Creation Time:</h5>
+                                <h5>Creation Date:</h5>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                    </div> 
+                    
+               
+                          
+
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                
+                  
+                  
+
+            </div>
+        </div>
 
 
         <script
@@ -20,5 +112,6 @@
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
                 crossorigin="anonymous"
         ></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     </body>
 </html>

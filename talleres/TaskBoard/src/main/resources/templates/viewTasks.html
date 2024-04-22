@@ -29,16 +29,29 @@
       </div>
     </header>
 
-    <div class="main-container d-flex flex-row justify-content-center">
+    <div class="main-container d-flex flex-row justify-content-center gap-10">
       
 
       <div
         class="panel-container w-100 m-5 align-items-center flex-column justify-content-center"
       >
       <button type="button" class="btn btn-info" href="/form">Back </button>
-        <div>
-          <h1>MY TASKS</h1>
+
+        <div class="search-container w-50 align-items-center flex-column justify-content-center">
+          <div>
+            <h1>MY TASKS</h1>
+
+          </div>
+          <div>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+          </div>
+
         </div>
+
         <div
           class="tasks-container d-flex gap-2 align-items-center flex-column"
         >
@@ -49,9 +62,10 @@
             <button type="button" class="btn btn-success">Show All</button>
           </div>
 
-          <div class="card" style="height: 20rem">
-            <div class="card-body">
-              <h1 class="card-title">TITLE</h1>
+          <div th:each ="task : ${taskList}" class="card w-75" style="height: 22rem" >
+            <div class="card-body ">
+              <h1 class="card-title" th:text="${task.task_title}"></h1>
+              <h2 class="card-title" th:text="${task.task_state}"></h2>
               <div class="dropdown">
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -61,19 +75,18 @@
                 >
                   State
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" >
                   <li><a class="dropdown-item" href="#">Active</a></li>
                   <li><a class="dropdown-item" href="#">Completed</a></li>
                   <li><a class="dropdown-item" href="#">Cancelled</a></li>
                 </ul>
               </div>
-              <p class="card-text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae,
-                tempore.
+              <p class="card-text" th:text="${task.task_description}">
+
               </p>
               <br />
-              <h5>Creation Time:</h5>
-              <h5>Creation Date:</h5>
+              <h5 th:text="${task.creation_time}"></h5>
+              <h5 th:text="${task.creation_date}"></h5>
               <button type="button" class="btn btn-danger">Delete</button>
             </div>
           </div>
