@@ -2,6 +2,7 @@ package com.riwi.eventsApp.services;
 
 
 import com.riwi.eventsApp.entities.Event;
+import com.riwi.eventsApp.repositories.EventRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class EventService {
         return this.objEventRepository.findById(id).orElseThrow();
     }
     @Override
-    public boolean delete(Long id) {
+    public boolean delete(UUID id) {
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
     @Override
