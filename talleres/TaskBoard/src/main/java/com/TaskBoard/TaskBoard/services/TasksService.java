@@ -15,21 +15,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TasksService {
 
-
     @Autowired
     private TasksRepository objTasksRepository;
 
-     /**
-     * Servicio para listar todas las task
-     */
     public List<Task> findAll() {
         return this.objTasksRepository.findAll();
     }
 
-    
-    /*
-     * Método para listar las task de forma paginada
-     */
     public Page<Task> findPaginated(int page, int size, String name) {
         Pageable pageable = PageRequest.of(page, size);
         if (name != null && !name.isEmpty()) {
@@ -38,43 +30,44 @@ public class TasksService {
             return objTasksRepository.findAll(pageable);
         }
     }
-    /*
-     * Servicio para guardar un Coder
-     * */
 
-    public Task insert(Task objTask) {
-        return this.objTasksRepository.save(objTask); //el método save es propio del JPA hace el proceso del insert
+    public Page<Task> findPaginatedByState(int page, int size, String state) {
+        Pageable pageable = PageRequest.of(page, size);
+        return objTasksRepository.findByState(state, pageable);
     }
 
-    /*
-    * METODO PARA ELIMINAR A UN CODER
-    * */
+    public Task insert(Task objTask) {
+        return this.objTasksRepository.save(objTask);
+    }
+
     public void delete(Long id) {
         this.objTasksRepository.deleteById(id);
     }
 
-    /*
-    * SERVICIO PARA ACTUALIZAR UN CODER
-    * */
-
-    public Task update (Long id, Task objTask){
-
-        Task objTaskDB = this.findByid(id); //busca el coder por ID
-
-        if (objTaskDB== null) return null; //verifica si existe el coder
-        objTaskDB=objTask; //actualiza el coder antiguo
-
-        return  this.objTasksRepository.save(objTaskDB); //guarda el coder
+    public Task update(Long id, Task objTask) {
+        Task objTaskDB = this.findByid(id);
+        if (objTaskDB == null) return null;
+        objTaskDB.setTitle(objTask.getTitle());
+        objTaskDB.setDescription(objTask.getDescription());
+        objTaskDB.setDate(objTask.getDate());
+        objTaskDB.setTime(objTask.getTime());
+        objTaskDB.setState(objTask.getState());
+        return this.objTasksRepository.save(objTaskDB);
     }
 
-    /*
-    * OBTENER CODER POR ID
-    */
-    public Task findByid (Long id){
+    public Task findByid(Long id) {
         return this.objTasksRepository.findById(id).orElse(null);
-
     }
 
-
-
+    public void updateTaskState(Long id, String state) {
+        Task task = objTasksRepository.findById(id).orElse(null);
+        if (task != null) {
+            task.setState(state);
+            objTasksRepository.save(task);
+        }
+    }
 }
+
+
+
+
