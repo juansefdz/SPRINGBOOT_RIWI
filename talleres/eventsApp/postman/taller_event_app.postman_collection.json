@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "19bc0942-0229-4e21-bec0-a0cc4c210b4e",
+		"name": "taller_event_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34297064"
+	},
+	"item": [
+		{
+			"name": "get_all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events/b2c46fee-cc73-4bff-9cd3-68472f23f66d",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"b2c46fee-cc73-4bff-9cd3-68472f23f66d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"pm.collectionVariables.set(\"id_event,response.id);",
+							"console.log(\"ID=>\"+pm.collectionVariables.get(\"id_event\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"prueba capacidad inferior a 0\",\n    \"date\": \"2025-05-01\",\n    \"ubication\": \"por ahi\",\n    \"capacity\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/events",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events/2109ed76-7ecf-4cf6-a2b6-f00823ad3c2e",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"2109ed76-7ecf-4cf6-a2b6-f00823ad3c2e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"fiesta despedida\",\n    \"date\": \"2027-07-01\",\n    \"ubication\": \"de moda outlet\",\n    \"capacity\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/events/648dd0f6-8f15-42e1-8ca4-747973799fb8",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"648dd0f6-8f15-42e1-8ca4-747973799fb8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events?page=0&size=2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8080/api/v1"
+		},
+		{
+			"key": "id_event",
+			"value": ""
+		}
+	]
+}
