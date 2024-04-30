@@ -7,6 +7,7 @@ import com.riwi.vacant.services.interfaces.ICompanyService;
 import com.riwi.vacant.utils.dto.request.CompanyRequest;
 import com.riwi.vacant.utils.dto.response.CompanyResponse;
 import com.riwi.vacant.utils.dto.response.VacantToCompanyResponse;
+import com.riwi.vacant.utils.exceptions.IdNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,13 +48,19 @@ public class CompanyService implements ICompanyService {
     }
 
     @Override
-    public CompanyRequest update(CompanyRequest companyRequest, String id) {
-        return null;
-    }
+    public CompanyResponse update(CompanyRequest request, String id) {
+        Company companyToUpdate = this.find(id);
 
+        Company company = this.requestToEntity(request, companyToUpdate);
+
+        return this.entityToResponse(this.companyRespository.save(company));
+    }
     @Override
-    public Void delete(String id) {
-        return null;
+    public void delete(String id) {
+        //buscamos la compañia
+        Company company = this.find(id);
+        //se elimina la compañia
+        this.companyRespository.delete(company);
     }
 
     @Override
@@ -103,6 +110,7 @@ public class CompanyService implements ICompanyService {
     }
 
     private Company find(String id){
-        return this.companyRespository.findById(id).orElseThrow();
+
+        return this.companyRespository.findById(id).orElseThrow(()-> new IdNotFoundException("Company"));
     }
 }

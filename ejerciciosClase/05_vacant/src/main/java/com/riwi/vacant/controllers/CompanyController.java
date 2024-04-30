@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -32,10 +33,23 @@ public class CompanyController {
 
     @PostMapping
     public ResponseEntity<CompanyResponse> insert(
-            @RequestBody CompanyRequest company
+            @Validated @RequestBody CompanyRequest company
     ) {
         return ResponseEntity.ok(this.CompanyService.create(company));
 
     }
 
+    @DeleteMapping (path = "/{id}")
+    public ResponseEntity <Void> delete (@PathVariable String id){
+        this.CompanyService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<CompanyResponse> update(
+            @PathVariable String id,
+            @Validated@RequestBody CompanyRequest company) {
+
+        return ResponseEntity.ok(this.CompanyService.update(company, id));
+    }
 }
