@@ -14,5 +14,5 @@ public class VacantResponse {
     private Long id;
     private String title;
     private String description;
-    private Company objCompany;
+    private CompanyToVacantResponse Company;
 }
